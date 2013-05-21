@@ -1,0 +1,40 @@
+#game, #loginForm, #gameList, #registerForm, #about {
+	margin: 0px auto;
+	text-align: center;
+	display: none;
+	border-radius: 10px;
+}
+
+#loginForm,#registerForm {
+	width: 400px;
+	box-shadow: 4px 4px 5px #404040;
+}
+
+#about {
+	width: 650px;
+	box-shadow: 4px 4px 5px #404040;
+}
+
+.header {
+	border: 2px solid;
+	background-color: #3366CC;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 40px;
+}
+
+.body {
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #999999;
+}
+
+#loginForm .body, #registerForm .body {
+	height: 250px;
+}
+#about .body {
+	height: 400px;
+}
