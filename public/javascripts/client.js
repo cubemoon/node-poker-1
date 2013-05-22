@@ -19,6 +19,7 @@ $(document).ready(function() {
 						$('<div class="alert alert-error">Przepisane hasło jest nieprawidłowe</div>').insertAfter($('#registerForm'));
 					} else {
 						//proba rejestracji uzytkownika
+						pass = CryptoJS.SHA3(pass).toString();
 						socket.emit('register',login,pass);
 						$(this).hide();
 					}
@@ -41,6 +42,7 @@ $(document).ready(function() {
 		//usuniecie ostrzezen
 		$('.alert').remove();
 		//proba zalogowania
+		pass = CryptoJS.SHA3(pass).toString();
 		socket.emit('login',login,pass);
 		$(this).hide();
 	});
