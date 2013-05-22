@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "3.2.4",
     "ejs": "*",
-    "sqlite3":"2.1.7"
+    "sqlite3":"2.1.7",
+    "socket.io":"0.9.14"
   }
 }

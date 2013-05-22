@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
 	$('#loginForm').show();
+	//$('#gameList').show();
 
 	$('a').click(function(event) {
+		event.preventDefault();
+	});
+
+	$('button').click(function(event) {
 		event.preventDefault();
 	});
 

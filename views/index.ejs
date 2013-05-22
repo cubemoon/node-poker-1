@@ -2,11 +2,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<script src="/javascripts/jquery-1.9.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/menu.js"></script>
+<script src="/javascripts/client.js"></script>
 <title>Poker Texas Hold'em</title>
 </head>
 <body>
+	<!-- GORNA BELKA -->
 	<div class="navbar navbar-inverse">
 		<div class="navbar-inner">
 			<a class="brand" href="#">Poker Texas Hold'em</a>
@@ -17,31 +23,48 @@
 			</ul>
 		</div>
 	</div>
+
 	<!-- LOGOWANIE -->
 	<div id="loginForm">
 		<div class="header"><h4>Logowanie</h4></div>
-		<div class="body"></div>
+		<div class="body">
+			<input type="text" id="inputLoginL" placeholder="Login">
+			<input type="password" id="inputPasswordL" placeholder="Hasło">
+			<button class="btn btn-primary" id="btnLogin">Zaloguj się</button>
+		</div>
 	</div>
+
 	<!-- REJESTRACJA -->
 	<div id="registerForm">
 		<div class="header"><h4>Rejestracja</h4></div>
-		<div class="body"></div>
+		<div class="body">
+			<input type="text" id="inputLoginR" placeholder="Login">
+			<input type="password" id="inputPasswordR" placeholder="Hasło">
+			<input type="password" id="inputRetypePasswordR" placeholder="Powtórz hasło">
+			<button class="btn btn-primary" id="btnRegister">Zarejestruj się</button>
+		</div>
 	</div>
+
 	<!-- GRA -->
 	<div id="game">
 		Gra
 	</div>
+
 	<!-- LISTA GIER -->
 	<div id="gameList">
-		Lista gier
+		<div class="header"><h4>Lista gier</h4></div>
+		<div class="body">
+			Lista gier
+		</div>
 	</div>
+
 	<!-- INFO O GRZE -->
 	<div id="about">
 		<div class="header"><h4>Informacje o grze</h4></div>
-		<div class="body"></div>
+		<div class="body">
+
+		</div>
 	</div>
-	<script src="/javascripts/jquery-1.9.1.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
-	<script src="/javascripts/menu.js"></script>
+
 </body>
 </html>
