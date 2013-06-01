@@ -53,9 +53,7 @@ $(document).ready(function() {
 			//ZALOGOWANO
 			$('#goLogin, #goRegister, #goInfo').slideUp();
 			$('#loginForm').fadeOut(function(){
-				$('#gameList').fadeIn(function(){
-					
-				});
+				$('#gameList').fadeIn();
 			});
 		} else {
 			$('<div class="alert alert-error">Nieprawidłowe dane logowania lub wystąpił błąd</div>').insertAfter($('#loginForm'));
@@ -67,5 +65,59 @@ $(document).ready(function() {
 	$('#goLogin, #goRegister, #goInfo').click(function(){
 		$('.alert').remove();
 	})
+
+	//klikanie w pozycje na liscie gier
+	$(document).on('click','#tableGameList table tbody tr',function(){
+		$('tbody tr').removeClass('choosenGame');
+		$(this).addClass('choosenGame');
+		$('#joinBtn').removeClass('disabled');
+	});
+
+	//tworzenie nowej gry
+	$('#createBtn').click(function() {
+		var name = prompt("Nazwa gry (dozwolone tylko litery i cyfry)");
+		if(name!=null) {
+			socket.emit('newgame',name);
+		}
+	});
+	//odpowiedz na stworzenie gry lub dolaczenie do istniejacej
+	socket.on('joinedToGame',function(joined){
+		if(joined) {
+			$('#gameList').fadeOut(function(){
+				$('#game').fadeIn(function(){
+
+				});
+			})
+		} else {
+			alert("Podana nazwa jest nieprawidłowa lub zajęta");
+		}
+	});
+
+	//dolaczenie do gry
+	$('#joinBtn').click(function(){
+		if(!$(this).hasClass('disabled')) {
+			var name = $('.choosenGame td:eq(1)').text();
+			socket.emit('joinGame',name);
+		} else alert('Najpierw wybierz, do której gry chcesz dołączyć');
+	});
+
+	//info o nowej grze
+	socket.on('newRoom',function(lp,name,count) {
+		$('tbody').append($('<tr id="'+name+'"><td>'+lp+'</td><td>'+name+'</td><td>'+count+'</td></tr>'));
+	});
+
+	//info o zmianie liczby graczy w grze
+	socket.on('updateRoom',function(name,count){
+		$('tr#'+name+' td:last').text(count);
+	});
+
+	//info o usunieciu gry
+	socket.on('deleteRoom',function(name){
+		$('tr#'+name).remove();
+		//poprawa numeracji gier
+		$('tbody tr').each(function(i){
+			$(this).children().first().text(i+1);
+		});
+	});
 
 });

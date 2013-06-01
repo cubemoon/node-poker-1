@@ -69,3 +69,22 @@ body{
 	width: 380px;
 	margin: 0px auto;
 }
+
+#tableGameList {
+	height: 350px;
+	overflow: auto;
+}
+
+#tableGameList table tbody tr:hover{
+	background-color: #AAAAAA;
+}
+
+#createJoinButtons {
+	padding-top: 10px;
+}
+
+.choosenGame {
+	background-color: #CCCCCC;
+	color: green;
+	font-weight: bold;
+}
