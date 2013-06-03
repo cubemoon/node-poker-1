@@ -20,7 +20,10 @@ body{
 
 #gameList {
 	width: 650px;
+}
 
+#game {
+	width: 800px;
 }
 
 .header {
@@ -53,6 +56,11 @@ body{
 #gameList .body {
 	height: 400px;
 	padding-top: 0px;
+}
+#game .body {
+	height: 530px;
+	padding-top: 0px;
+	background-color: #339933;
 }
 
 #loginForm input, #registerForm input {
@@ -87,4 +95,68 @@ body{
 	background-color: #CCCCCC;
 	color: green;
 	font-weight: bold;
+}
+
+#headerRoomName {
+	display: inline-block;	
+	float: left;
+	padding-left: 10px;
+	color: #4F2F4F;
+}
+
+#game .header h3{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+
+#headerPlayerInfo {
+	display: inline-block;
+	float: right;
+	padding-right: 10px;
+}
+#coins {
+	color: gold;
+}
+#nick {
+	color: #4F2F4F;
+}
+#headerPlayerInfo img {
+	padding-bottom: 10px;
+	margin-right: 2px;
+	margin-left: 15px;
+}
+
+.game {
+	background-color: #006633;
+	height: 420px;
+	border-bottom: 3px solid;
+}
+#chat {
+	height: 107px;
+	width: 397px;
+	float: left;
+	border-right: 2px solid;
+}
+#action {
+	height: 107px;
+	width: 397px;
+	float: right;
+}
+#msgList {
+	height: 78px;
+	margin-bottom: 3px;
+	overflow: auto;
+	text-align: left;
+}
+#msgList p {
+	word-wrap: break-word;
+	color: black;
+	font-size: 0.9em;
+	margin: 0px;
+}
+#msg {
+	margin: 0px;
+	padding: 0px;
+	width: 385px;
 }

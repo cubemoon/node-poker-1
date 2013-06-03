@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$('#loginForm').show();
-	//$('#gameList').show();
+	//$('#game').show();
 
 	$('a').click(function(event) {
 		event.preventDefault();

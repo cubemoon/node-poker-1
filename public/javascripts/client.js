@@ -54,6 +54,7 @@ $(document).ready(function() {
 			$('#goLogin, #goRegister, #goInfo').slideUp();
 			$('#loginForm').fadeOut(function(){
 				$('#gameList').fadeIn();
+				$('#nick').text($('#inputLoginL').val()); //nick na gornej belce w #game
 			});
 		} else {
 			$('<div class="alert alert-error">Nieprawidłowe dane logowania lub wystąpił błąd</div>').insertAfter($('#loginForm'));
@@ -81,9 +82,11 @@ $(document).ready(function() {
 		}
 	});
 	//odpowiedz na stworzenie gry lub dolaczenie do istniejacej
-	socket.on('joinedToGame',function(joined){
+	socket.on('joinedToGame',function(joined,room,coins){
 		if(joined) {
 			$('#gameList').fadeOut(function(){
+				$('#room').text(room);
+				$('#coins').text(coins);
 				$('#game').fadeIn(function(){
 
 				});
@@ -92,7 +95,6 @@ $(document).ready(function() {
 			alert("Podana nazwa jest nieprawidłowa lub zajęta");
 		}
 	});
-
 	//dolaczenie do gry
 	$('#joinBtn').click(function(){
 		if(!$(this).hasClass('disabled')) {
@@ -118,6 +120,20 @@ $(document).ready(function() {
 		$('tbody tr').each(function(i){
 			$(this).children().first().text(i+1);
 		});
+	});
+
+	//wysylanie wiadomosci czatu
+	$('#msg').keypress(function(key){
+		if(key.keyCode == 13) {
+			socket.emit('msg',$('#msg').val());
+			$('#msg').val("");
+		}
+	});
+
+	//odebranie wiadomosci czatu
+	socket.on('msg',function(nick,msg){
+		$('#msgList').append("<p><b>"+nick+": </b>"+msg+"</p>");
+		$('#msgList').animate({scrollTop: $('#msgList').prop("scrollHeight")},500);
 	});
 
 });
