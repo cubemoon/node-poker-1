@@ -142,6 +142,7 @@ body{
 	height: 107px;
 	width: 397px;
 	float: right;
+	text-align: right;
 }
 #msgList {
 	height: 78px;
@@ -159,4 +160,24 @@ body{
 	margin: 0px;
 	padding: 0px;
 	width: 385px;
+}
+
+/*
+	przyciski akcji
+*/
+#action button {
+	width: 125px;
+}
+#action input {
+	margin: 0px;
+	width: 110px;
+}
+.row {
+	margin-left: 0px;
+	margin-right: 7px;
+	margin-top: 4px;
+}
+button#wyjdz {
+	width: 70px;
+	margin-top: 7px;
 }
