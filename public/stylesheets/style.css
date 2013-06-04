@@ -128,9 +128,9 @@ body{
 }
 
 .game {
-	background-color: #006633;
 	height: 420px;
 	border-bottom: 3px solid;
+	background:#006633 url("/images/poker_table.jpg") no-repeat center;
 }
 #chat {
 	height: 107px;

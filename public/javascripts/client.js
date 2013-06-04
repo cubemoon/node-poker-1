@@ -136,4 +136,12 @@ $(document).ready(function() {
 		$('#msgList').animate({scrollTop: $('#msgList').prop("scrollHeight")},500);
 	});
 
+	//powrot do lobby
+	$('#wyjdz').click(function(){
+		$('#gameList tbody').html("");
+		socket.emit('returnToLobby');
+		$('#game').fadeOut(function(){
+			$('#gameList').fadeIn();
+		});
+	});
 });
