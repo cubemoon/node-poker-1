@@ -131,6 +131,7 @@ body{
 	height: 420px;
 	border-bottom: 3px solid;
 	background:#006633 url("/images/poker_table.jpg") no-repeat center;
+	position: relative;
 }
 #chat {
 	height: 107px;
@@ -180,4 +181,99 @@ body{
 button#wyjdz {
 	width: 70px;
 	margin-top: 7px;
+}
+
+/*
+	położenie elementów na stole do gry
+*/
+.game div {
+	position: absolute;
+}
+.wolneMiejsce p {
+	color: skyblue;
+	font-weight: bold;
+	margin: 3px;
+	font-size: 0.85em;
+}
+.wolneMiejsce {
+	border: 2px dotted orange;
+	cursor: pointer;
+}
+
+.zajeteMiejsce {
+	border: 2px solid red;
+	height: 100px;
+	background-color: skyblue;
+	width: 110px;
+}
+.zajeteMiejsce p {
+	color: blue;
+	font-weight: bold;
+}
+
+/* polozenie wolnych miejsc */
+.wolneMiejsce.miejsce1 {
+	top: 15px;
+	left: 200px;
+}
+.wolneMiejsce.miejsce2 {
+	top: 15px;
+	left: 350px;
+}
+.wolneMiejsce.miejsce3 {
+	top: 15px;
+	left: 500px;
+}
+.wolneMiejsce.miejsce4 {
+	top: 190px;
+	right: 2px;
+}
+.wolneMiejsce.miejsce5 {
+	left: 500px;
+	bottom: 15px;
+}
+.wolneMiejsce.miejsce6 {
+	left: 350px;
+	bottom: 15px;
+}
+.wolneMiejsce.miejsce7 {
+	left: 200px;
+	bottom: 15px;
+}
+.wolneMiejsce.miejsce8 {
+	top: 190px;
+	left: 2px;
+}
+/* polozenie zajetych miejsc */
+.zajeteMiejsce.miejsce1 {
+	top: 25px;
+	left: 200px;
+}
+.zajeteMiejsce.miejsce2 {
+	top: 25px;
+	left: 350px;
+}
+.zajeteMiejsce.miejsce3 {
+	top: 25px;
+	left: 500px;
+}
+.zajeteMiejsce.miejsce4 {
+	top: 160px;
+	right: 60px;
+}
+.zajeteMiejsce.miejsce5 {
+	left: 500px;
+	bottom: 25px;
+}
+.zajeteMiejsce.miejsce6 {
+	left: 350px;
+	bottom: 25px;
+}
+.zajeteMiejsce.miejsce7 {
+	left: 200px;
+	bottom: 25px;
+}
+.zajeteMiejsce.miejsce8 {
+	top: 160px;
+	left: 60px;
 }

@@ -138,10 +138,29 @@ $(document).ready(function() {
 
 	//powrot do lobby
 	$('#wyjdz').click(function(){
-		$('#gameList tbody').html("");
+		$('#gameList tbody').html(""); //czyszczenie listy gier
+		$('#msgList').html(""); 	   //oraz czatu
+		$('.game div').removeClass();  //usuwanie klas z elementów na stole
+		$('.game div').html("");
 		socket.emit('returnToLobby');
 		$('#game').fadeOut(function(){
 			$('#gameList').fadeIn();
 		});
+	});
+
+	//otrzymanie informacji o wolnym miejscu przy stole
+	socket.on('wolneMiejsce',function(i) {
+		$('#gracz'+i).removeClass().addClass("wolneMiejsce").addClass("miejsce"+i).html("").append("<p>Wolne miejsce</p>");
+	});
+
+	//wybranie miejsca
+	$(document).on('click','.wolneMiejsce',function() {
+		var miejsce = $(this).data("miejsce");
+		socket.emit('sitDown',miejsce);
+	});
+
+	//otrzymanie informacji o zajętym miejscu przy stole
+	socket.on('zajeteMiejsce',function(i,nick) {
+		$('#gracz'+i).removeClass().addClass("miejsce"+i).addClass("zajeteMiejsce").html("<p>"+nick+"</p>");
 	});
 });
